@@ -47,6 +47,7 @@ ENDT = 100.0e-3
 ###########################################################
 
 mesh_file =  ['./meshes/Cylinder3_dia1um_L10um_noouter_0.3shell_0.3size_13617tets_adaptive.inp', 'Cylinder3dia1umL10um'] # mesh file and label
+mesh_file =  ['./meshes/Cylinder_dia5um_L10um_noouter_7885tets.msh', 'Cylinder3dia5umL10um'] # mesh file and label
 
 ###########################################################
 # Biochemical model
@@ -319,7 +320,8 @@ with mdl:
 # Mesh and compartmentalization
 ###########################################################
 
-mesh = TetMesh.LoadAbaqus(mesh_file[0], 1e-6)
+if mesh_file[0][-3:]=='msh': mesh = TetMesh.LoadGmsh(mesh_file[0], 1e-6)
+else: mesh = TetMesh.LoadAbaqus(mesh_file[0], 1e-6)
 
 with mesh:
 

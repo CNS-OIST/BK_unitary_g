@@ -13,6 +13,7 @@ BK_facs = CaP_facs = [1, 2, 3, 4]
 BK_facs=np.array(BK_facs)
 
 mesh = 'Cylinder3dia1umL10um'
+mesh = 'Cylinder3dia5umL10um'
 capacfac = 50
 endtime = 10.0
 
@@ -77,7 +78,8 @@ ax1.set_xticks((1.5, 2))
 for ax in (ax2, ax3):
     ax.legend(BK_facs, loc='lower right',facecolor='white', framealpha=1)
     ax.set_xlim(1.2,4.2)
-    ax.set_ylim(0,350)
+    #ax.set_ylim(0,350)
+    ax.set_ylim(0,1200)
 ax2.set_ylabel(f'BK250 conductance (nS)')
 ax3.set_ylabel(f'BK50 conductance (nS)')
 
@@ -86,7 +88,7 @@ ax4.legend(loc='best')
 ax4.set_xlabel('Time (ms)')
 ax4.set_ylabel('% of activated CaP channels')
 ax4.set_xlim(1.1,2.3)
-ax4.set_ylim(0,105)
+#ax4.set_ylim(0,105)
 ax4.set_xticks((1.5, 2))
 
 for ax in (ax5, ax6):
@@ -116,5 +118,6 @@ ax5.text(-0.15,1.05,'e', fontweight = 'bold', transform=ax5.transAxes)
 ax6.text(-0.15,1.05,'f', fontweight = 'bold', transform=ax6.transAxes)
 
 plt.subplots_adjust(wspace=0.4, hspace=0.3)
-plt.savefig('Figures/Figure2.pdf', dpi=300)
+#plt.savefig('Figures/Figure2.pdf', dpi=300)
+plt.savefig(f'Figures/Figure2_{mesh}.pdf', dpi=300)
 plt.close()

@@ -12,6 +12,7 @@ SEED='1234'
 BK_gs = [50, 100, 150, 200, 250]
 
 mesh = 'Cylinder3dia1umL10um'
+mesh = 'Cylinder3dia5umL10um'
 
 endtime = 100.0
 
@@ -97,7 +98,7 @@ axins.set_xlim(1,2)
 axins.set_xticks((1,2))
 axins.set_yticks(())
 
-ax2.legend(loc='best')
+ax2.legend(loc='lower center')
 ax2.set_xlabel('Time rel to peak (ms)')
 ax2.set_ylabel('BK conductance (nS)')
 ax2.set_xlim(-0.5,0.8)
@@ -136,9 +137,10 @@ if mesh == 'Cylinder3dia1umL10um':
     ax7.set_ylim(0.6, 0.8)
     ax7.set_yticks((0.6, 0.7, 0.8))
 else:
-    ax.set_xlim(79,87)
-    ax6.set_ylim(40, 60)
-    ax6.set_yticks((40, 50, 60))
+    ax.set_xlim(22.5,35)
+    #ax6.set_ylim(40, 60)
+    ax6.set_ylim(22, 32)
+    #ax6.set_yticks((40, 50, 60))
     ax7.set_yticks((0.5, 0.6, 0.7))
 
 text_x = -0.15
@@ -154,6 +156,8 @@ ax6.text(text_x,text_y,'f', fontweight = 'bold', transform=ax6.transAxes)
 
 
 plt.subplots_adjust(wspace=0.6, hspace=0.4)
-plt.savefig('Figures/Figure3A-F.pdf', dpi=300)
+#plt.savefig('Figures/Figure3A-F.pdf', dpi=300)
+plt.savefig(f'Figures/Figure3A-F_{mesh}.pdf', dpi=300)
+plt.show()
 plt.close()
 
