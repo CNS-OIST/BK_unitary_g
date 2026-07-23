@@ -1,0 +1,64 @@
+./CaP.c: ../mod/CaP.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "CaP.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./CaP.o: ./CaP.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./CaT.c: ../mod/CaT.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "CaT.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./CaT.o: ./CaT.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./cdp_AIS.c: ../mod/cdp_AIS.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "cdp_AIS.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./cdp_AIS.o: ./cdp_AIS.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./ih.c: ../mod/ih.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "ih.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./ih.o: ./ih.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./kv3.c: ../mod/kv3.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "kv3.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./kv3.o: ./kv3.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./mslo.c: ../mod/mslo.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "mslo.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./mslo.o: ./mslo.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./nap.c: ../mod/nap.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "nap.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./nap.o: ./nap.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+
+./narsg.c: ../mod/narsg.mod
+	@printf " -> $(C_GREEN)NMODL$(C_RESET) $<\\n"
+	(cd "../mod";  MODLUNIT=$(NRNUNITS) $(NOCMODL) "narsg.mod" -o "/Users/iain/GIT/BK_unitary_g/NEURON/simple_model_50pS/arm64")
+
+./narsg.o: ./narsg.c
+	@printf " -> $(C_GREEN)Compiling$(C_RESET) $<\\n"
+	$(COMPILE) -I"../mod" $(INCLUDES) -fPIC -c $< -o $@
+

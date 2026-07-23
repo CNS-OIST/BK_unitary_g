@@ -6,9 +6,10 @@ gmsh.model.add("cylinder")
 # ---------------------
 # Parameters (µm)
 # ---------------------
-L  = 10.0
-R  = 2.5
-lc = 0.5
+L  = 15
+D = 1
+R  = D/2.0
+lc = 0.2
 
 # ---------------------
 # Geometry (OpenCASCADE)
@@ -42,7 +43,7 @@ gmsh.model.mesh.generate(3)
 elemTypes, elemTags, _ = gmsh.model.mesh.getElements(dim=3)
 nTets = sum(len(tags) for et, tags in zip(elemTypes, elemTags) if et == 4)
 
-filename = f"cylinder_{nTets}_tets.msh"
+filename = f"Cylinder_dia{D}um_L{L}um_size{lc}_{nTets}tets.msh"
 gmsh.write(filename)
 
 print(f"Exported {filename} (MSH 2.2 ASCII)")

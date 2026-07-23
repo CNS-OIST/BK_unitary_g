@@ -11,6 +11,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
+import random
+from scipy.stats import levene
+
+
+
+
 plot_mode = 'Var'
 plot_mode = 'CV'
 
@@ -83,6 +89,18 @@ varISI_range = {}
 varISI_range[50] = []
 varISI_range[250] = []
 
+
+# Bootstrapping
+nbootstraps = 10000 # repeat the test this number of times
+nsamples = 1000 # sample this number of times from the data per bootstrap
+
+lev = {}
+ISIs = {}
+
+for i in range(len(BK_Iinj[50]+BK_Iinj_range[50] )):
+    ISIs[i] = []
+
+print (ISIs)
 
 ex_mean_idx = 0
 ex_i_idx = 5
@@ -179,7 +197,61 @@ for BK_g in BK_Iinj.keys():
             stdISI_range[BK_g].append(float(round(np.std(ISI),2)))
             varISI_range[BK_g].append(float(round(np.std(ISI)*np.std(ISI),2)))
 
+
+        ISIs[idx].append(ISI)
+        print("Appended to ", idx)
+
+    
         idx+=1
+
+
+def cv(x):
+    x = np.asarray(x, dtype=float)
+    return x.std(ddof=1) / x.mean()
+
+def bootstrap_cv(data, n_boot, rng):
+    """n_boot bootstrap CV estimates; each resample is the original size, drawn with replacement."""
+    data = np.asarray(data, dtype=float)
+    n = data.size
+    idx = rng.integers(0, n, size=(n_boot, n))
+    samples = data[idx]
+    return samples.std(axis=1, ddof=1) / samples.mean(axis=1)
+
+N_BOOT = 10000
+rng = np.random.default_rng(42)   # fixed seed so the reported CIs are reproducible
+
+for idx in ISIs.keys():
+    ISI50  = ISIs[idx][0]
+    ISI250 = ISIs[idx][1]
+
+    cv50, cv250 = cv(ISI50), cv(ISI250)
+
+    # bootstrap each channel independently, then derive effect sizes
+    b50  = bootstrap_cv(ISI50,  N_BOOT, rng)
+    b250 = bootstrap_cv(ISI250, N_BOOT, rng)
+    dCV   = b50 - b250        # absolute difference
+    ratio = b50 / b250        # fold difference
+
+    dCV_ci   = np.percentile(dCV,   [2.5, 97.5])
+    ratio_ci = np.percentile(ratio, [2.5, 97.5])
+    cv50_ci  = np.percentile(b50,   [2.5, 97.5])
+    cv250_ci = np.percentile(b250,  [2.5, 97.5])
+
+    p_sup = np.mean(b50 > b250)   # probability of superiority (your "0 of 10,000" as an effect size)
+
+    statistic, p_value = levene(ISI50, ISI250)
+    var_ratio = np.var(ISI50, ddof=1) / np.var(ISI250, ddof=1)   # effect size for Levene
+
+    print("Iinjs: ", (BK_Iinj[50] + BK_Iinj_range[50])[idx], (BK_Iinj[250] + BK_Iinj_range[250])[idx])
+    print("Means: ", (meanISI[50] + meanISI_range[50])[idx], (meanISI[250] + meanISI_range[250])[idx])
+    print(f"CV 50pS:  {cv50:.4f}  95% CI [{cv50_ci[0]:.4f}, {cv50_ci[1]:.4f}]")
+    print(f"CV 250pS: {cv250:.4f}  95% CI [{cv250_ci[0]:.4f}, {cv250_ci[1]:.4f}]")
+    print(f"dCV (50-250): {cv50-cv250:.4f}  95% CI [{dCV_ci[0]:.4f}, {dCV_ci[1]:.4f}]")
+    print(f"ratio 50/250: {cv50/cv250:.3f}  95% CI [{ratio_ci[0]:.3f}, {ratio_ci[1]:.3f}]"
+          f"  ({100*(cv50/cv250-1):.1f}% higher)")
+    print(f"P(CV50 > CV250): {p_sup:.4f}")
+    print(f"Levene's Test Statistic: {statistic}, P-value: {p_value}, variance ratio: {var_ratio:.3f}")
+    
     
 for BK_g in BK_Iinj.keys():
     if plot_mode == 'Var':
@@ -224,3 +296,4 @@ ax6.text(-0.1,1.1,'e', fontweight = 'bold', transform=ax6.transAxes)
 plt.subplots_adjust(wspace=0.3, hspace=0.5)
 plt.savefig('Figures/Figure5.pdf', dpi=500)
 plt.close()
+

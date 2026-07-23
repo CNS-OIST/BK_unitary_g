@@ -1,0 +1,80 @@
+// present version
+load_file("nrngui.hoc")
+
+Default_Eleak = -65
+membranecap = 0.64*50      	/* specific membrane capacitance in uF cm^-2 */
+axialresist = 120	     	/* axial resistivity in ohm cm */
+
+
+
+create AIS
+AIS {nseg=10 L=10 diam=1}
+
+
+	forall {
+		insert pas e_pas=Default_Eleak	/* Insert Leak everywhere */
+	}
+
+access AIS
+
+AIS { g_pas=0.001 Ra=axialresist cm=membranecap}
+
+AIS {
+
+    insert Kv3
+    gbar_Kv3 = ((0.3*6*2*2*2*4*2)/20.0)
+    vshift_Kv3 = 4
+
+
+
+    insert nap
+    gbar_nap = 0.0023
+
+    insert naRsg
+    gbar_naRsg = (0.8*0.7)
+    vshifta_naRsg = 15
+    vshiftk_naRsg = 5
+    vshifti_naRsg = -5
+
+    insert newCaP
+    pcabar_newCaP = (22.8e-4*1)
+    kt_newCaP = 1
+    vshift_newCaP = -5
+
+
+    insert CaT3_1
+    pcabar_CaT3_1 = 6.4e-5*2
+
+    insert mslo
+    gbar_mslo = 6*1
+
+   insert cdpAIS
+
+    ena = 63
+
+}
+
+access AIS
+
+xopen("dendv_arnd21.ses")
+
+celsius = 34
+dt = 0.02
+steps_per_ms = 1/dt
+dtsim = 0.02
+
+//xopen ("electrode.hoc")
+//xopen("distri.hoc")
+
+v_init = -60
+
+// simple spike energy consumtion
+
+tstop = 10
+
+finitialize(v_init)
+
+startsw()
+continuerun(tstop)		// This is "run()" without the "init()"
+stopsw()
+

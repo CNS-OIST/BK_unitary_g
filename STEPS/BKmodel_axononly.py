@@ -16,6 +16,7 @@ import sys
 from myconstants import *
 
 import time
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 ###########################################################
@@ -32,14 +33,17 @@ Camode = 'Cabind'
 
 CaPstates = False
 
+Kon_sens = False # if varying the BK K_on
+
 NBRUNS = 1
 
 EF_DT = 2.0e-6
 
 DT =  1.0e-5
 
-ENDT = 10.0e-3
-ENDT = 100.0e-3
+#ENDT = 3.0e-3
+ENDT = 5.0e-3
+#ENDT = 100.0e-3
 
 
 ###########################################################
@@ -47,7 +51,10 @@ ENDT = 100.0e-3
 ###########################################################
 
 mesh_file =  ['./meshes/Cylinder3_dia1um_L10um_noouter_0.3shell_0.3size_13617tets_adaptive.inp', 'Cylinder3dia1umL10um'] # mesh file and label
-mesh_file =  ['./meshes/Cylinder_dia5um_L10um_noouter_7885tets.msh', 'Cylinder3dia5umL10um'] # mesh file and label
+#mesh_file =  ['./meshes/Cylinder_dia1um_L10um_noouter_72448tets.msh', 'Cylinderdia1umL10um_72k'] # mesh file and label
+#mesh_file =  ['./meshes/Cylinder_dia1um_L10um_noouter_1583tets.msh', 'Cylinderdia1umL10um_1k'] # mesh file and label
+#mesh_file =  ['./meshes/Cylinder_dia5um_L10um_noouter_7885tets.msh', 'Cylinder3dia5umL10um'] # mesh file and label
+
 
 ###########################################################
 # Biochemical model
@@ -369,6 +376,10 @@ else:
 CaConcs = rs.cyto.Ca.Conc << \
          (rs.SUM(rs.TETS(submemb_tets).Ca.Count) / (AVOGADRO * submemb_tets.Vol * 1e3))
 
+print ("Submemb tets volume (m3): ", submemb_tets.Vol)
+print ("Cyto volume (m3): ",    mesh.tets.Vol)
+
+
 Pot = rs.TET(0).V
 
 sim.toSave(Currents, Chanstates, CaConcs, Pot, dt=DT)
@@ -377,6 +388,8 @@ sim.toSave(Currents, Chanstates, CaConcs, Pot, dt=DT)
 
 if CaPstates:
     datadir = 'data_CaPstates'
+elif Kon_sens:
+    datadir = 'data_Kon'
 else:
     datadir = 'data'
 
@@ -445,6 +458,7 @@ with HDF5Handler(filename) as hdf:
                 sim.EfieldDT = EF_DT
         
                 sim.ALL(Membrane).Potential = init_pot
+
                 sim.membrane.VolRes = Ra
                 sim.membrane.Capac = memb_capac
         
