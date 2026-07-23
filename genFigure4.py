@@ -107,8 +107,8 @@ for bindmode in ['Cabind', 'Canobind']:
         if i==0:
             ax.legend(loc='best')
             ax.set_xlim(1,3.99)
-            if bindmode == 'Cabind': ax.set_ylabel('BK g (Ca buffered) (nS)')
-            else: ax.set_ylabel('BK g (Ca not buffered) (nS)')
+            if bindmode == 'Cabind': ax.set_ylabel('BK g (Ca removed) (nS)')
+            else: ax.set_ylabel('BK g (Ca not removed) (nS)')
         else: ax.set_yticklabels(())
         if bindmode == 'Cabind' or 1: ax.set_title(f'G_BK increase {BK_facs[i]}X', fontweight="bold")
         
@@ -129,9 +129,9 @@ for bindmode in ['Cabind', 'Canobind']:
     ax.set_yticks((0.5,1))
     ax.set_ylim(0.25,1.05)
     if bindmode == 'Cabind':
-        ax.set_title(f'BK (Ca buffered)', fontweight="bold")
+        ax.set_title(f'BK (Ca removed)', fontweight="bold")
     else:
-        ax.set_title(f'BK (Ca not buffered)', fontweight="bold")
+        ax.set_title(f'BK (Ca not removed)', fontweight="bold")
         ax.legend(loc='best')
 
     ax = BK_axs[axidx+6]
@@ -139,9 +139,9 @@ for bindmode in ['Cabind', 'Canobind']:
     ax.set_ylabel('Time to peak BK g (ms)')
     ax.set_xlabel('Unitary conductance (pS)')
     ax.set_ylim(0.36+1.2,0.66+1.2)
-    if bindmode == 'Cabind':  ax.set_title(f'BK (Ca buffered)', fontweight="bold")
+    if bindmode == 'Cabind':  ax.set_title(f'BK (Ca removed)', fontweight="bold")
     else:
-        ax.set_title(f'BK (Ca not buffered)', fontweight="bold")
+        ax.set_title(f'BK (Ca not removed)', fontweight="bold")
         ax.legend()
     
     axidx+=7

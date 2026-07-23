@@ -184,7 +184,7 @@ CaP_P = Parameter(2.5e-2, 'um^3 s^-1', Description='CaP single channel permeabil
 pbar_CaP = Parameter(0.95e-4 * 24 * 1e4, 'um s^-1', Description='CaP total permeability')
 #CaP_ro = Parameter(38, 'um^-2', Description='CaP channels density')
 CaP_ro = Parameter(pbar_CaP/CaP_P, 'um^-2', Description='CaP channels density')
-
+#print (CaP_ro*1e12, 'CaP channels per m2')
 # Reaction rates
 
 def minf_cap(Vm):
@@ -378,7 +378,7 @@ pb3 = 1013
 pb4 = 125.7
 
 #Units(/M.s)
-k1 = 1.0e9
+k1 = 1.0e9*1.0 # modify for k_on
 
 #Units(/s)
 kc_off = 11917
