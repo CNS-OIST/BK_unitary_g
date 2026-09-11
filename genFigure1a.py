@@ -3,9 +3,9 @@
 genFigure1a.py
 ===================================================================
 Build the annotated, branch-coloured phylogeny directly from the
-IQ-TREE Newick file (exact branch lengths; no PDF reverse-engineering).
+IQ-TREE Newick file.
 
-Pipeline (all deterministic; no generative component):
+Pipeline:
   1. Read the Newick tree.
   2. Re-root it between Protostomia and Deuterostomia -- i.e. at the
      midpoint of the branch subtending the vertebrate clade -- so the

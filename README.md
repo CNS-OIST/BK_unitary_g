@@ -1,7 +1,7 @@
 # BK_unitary_g
 Models and data for the BK unitary conductance study
 
-- The `genFigure` Python scripts plot the main figures 2-5. 
+- The `genFigure` Python scripts plot the main figures 1-5 whole or in part. 
 
 
 - The `STEPS` folder contains the Python model script `BKmodel_axononly.py` from which all data can be generated. 
