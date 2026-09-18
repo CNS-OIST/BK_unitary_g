@@ -5,8 +5,6 @@ import numpy as np
 from math import pi
 plt.style.use('./figures.naturestyle')
 
-dx = '200nm'
-
 
 BK_facs = CaP_facs = [1, 2, 3, 4]
 BK_facs=np.array(BK_facs)
@@ -24,7 +22,7 @@ CaP_maxes=[]
 
 BK_G = '250'
 for CaP_fac in CaP_facs:
-        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data_{dx}/BK1_CaP{CaP_fac}/CaP_I.dat', 'r')
+        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data/BK1_CaP{CaP_fac}/CaP_I.dat', 'r')
         neuronfile_lines = neuronfile.readlines()
         neuronv=[]
         neuront=[]
@@ -38,7 +36,7 @@ for CaP_fac in CaP_facs:
         CaP_maxes.append(np.max(neuronv))
         
         
-        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data_{dx}/BK1_CaP{CaP_fac}/CaP_m.dat', 'r')
+        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data/BK1_CaP{CaP_fac}/CaP_m.dat', 'r')
         neuronfile_lines = neuronfile.readlines()
         neuronv=[]
         neuront=[]
@@ -53,7 +51,7 @@ for CaP_fac in CaP_facs:
 
 
 for BK_fac in BK_facs:
-        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data_{dx}/BK{BK_fac}_CaP1/BK_I.dat', 'r')
+        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data/BK{BK_fac}_CaP1/BK_I.dat', 'r')
         neuronfile_lines = neuronfile.readlines()
         neuronv=[]
         neuront=[]
@@ -67,7 +65,7 @@ for BK_fac in BK_facs:
         BK250_maxes.append(np.max(neuronv))
         
         
-        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data_{dx}/BK{BK_fac}_CaP1/BK_g.dat', 'r')
+        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data/BK{BK_fac}_CaP1/BK_g.dat', 'r')
         neuronfile_lines = neuronfile.readlines()
         neuronv=[]
         neuront=[]
@@ -82,7 +80,7 @@ for BK_fac in BK_facs:
 BK_G = '50'
 
 for BK_fac in BK_facs:
-        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data_{dx}/BK{BK_fac}_CaP1/BK_I.dat', 'r')
+        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data/BK{BK_fac}_CaP1/BK_I.dat', 'r')
         neuronfile_lines = neuronfile.readlines()
         neuronv=[]
         neuront=[]
@@ -96,7 +94,7 @@ for BK_fac in BK_facs:
         BK50_maxes.append(np.max(neuronv))
         
         
-        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data_{dx}/BK{BK_fac}_CaP1/BK_g.dat', 'r')
+        neuronfile = open(f'NEURON/simple_model_{BK_G}pS/data/BK{BK_fac}_CaP1/BK_g.dat', 'r')
         neuronfile_lines = neuronfile.readlines()
         neuronv=[]
         neuront=[]

@@ -1,0 +1,217 @@
+objectvar save_window_, rvp_
+objectvar scene_vector_[8]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-0.008,0.004)
+scene_vector_[2] = save_window_
+{save_window_.view(0, -0.15, 500, 0.012, 568, 7, 769.92, 344.32)}
+graphList[2].append(save_window_)
+save_window_.save_name("graphList[2].")
+save_window_.addexpr("somaA.ik_mslo( 0.5 )", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.ica_newCaP( 0.5 )", 6, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("AIS.cai( 0.1 )", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.cai( 0.3 )", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.cai( 0.5 )", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.cai( 0.7 )", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.cai( 0.9 )", 5, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("somaA.cai( 0.1 )", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.cai( 0.3 )", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.cai( 0.5 )", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.cai( 0.7 )", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.cai( 0.9 )", 5, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,10.008,10.004)
+scene_vector_[2] = save_window_
+{save_window_.view(0, -1.5, 500, 0.012, 568, 357, 769.92, 344.32)}
+graphList[2].append(save_window_)
+save_window_.save_name("graphList[2].")
+save_window_.addexpr("AIS.ik_mslo( 0.5 )", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.ica_newCaP( 0.5 )", 6, 1, 0.8, 0.9, 2)
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,10.008,10.004)
+scene_vector_[2] = save_window_
+{save_window_.view(0, -1.5, 500, 0.012, 568, 357, 769.92, 344.32)}
+graphList[2].append(save_window_)
+save_window_.save_name("graphList[2].")
+save_window_.addexpr("dendA1_0010111101.ik_mslo( 0.5 )", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("dendA1_0010111101.ica_newCaP( 0.5 )", 6, 1, 0.8, 0.9, 2)
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("somaA.v( 0.5 )", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.v( 0.5 )", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("dendA1_0010111101.v( 0.5 )", 6, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("AIS.O0_cdpAIS", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O1_cdpAIS", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O2_cdpAIS", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O3_cdpAIS", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O4_cdpAIS", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C0_cdpAIS", 6, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C1_cdpAIS", 7, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C2_cdpAIS", 8, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C3_cdpAIS", 9, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C4_cdpAIS", 10, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("AIS.O0_cdpAIS", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O1_cdpAIS", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O2_cdpAIS", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O3_cdpAIS", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O4_cdpAIS", 5, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("AIS.C0_cdpAIS (0.0)", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C0_cdpAIS (0.2)", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C0_cdpAIS (0.3)", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C0_cdpAIS (0.4)", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C0_cdpAIS (0.5)", 6, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C0_cdpAIS (1.0)", 7, 1, 0.8, 0.9, 2)
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("AIS.O0_mslo", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O1_mslo", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O2_mslo", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O3_mslo", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O4_mslo", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C0_mslo", 6, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C1_mslo", 7, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C2_mslo", 8, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C3_mslo", 9, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.C4_mslo", 10, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("AIS.O0_mslo", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O1_mslo", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O2_mslo", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O3_mslo", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("AIS.O4_mslo", 5, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("somaA.O0_cdp20N_FD2", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O1_cdp20N_FD2", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O2_cdp20N_FD2", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O3_cdp20N_FD2", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O4_cdp20N_FD2", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C0_cdp20N_FD2", 6, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C1_cdp20N_FD2", 7, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C2_cdp20N_FD2", 8, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C3_cdp20N_FD2", 9, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C4_cdp20N_FD2", 10, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,-57.1,-53.8)
+scene_vector_[3] = save_window_
+{save_window_.view(0, 40, 500, 3.3, 567, 970, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[3].")
+
+save_window_.addexpr("somaA.O0_mslo", 1, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O1_mslo", 2, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O2_mslo", 3, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O3_mslo", 4, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.O4_mslo", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C0_mslo", 6, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C1_mslo", 7, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C2_mslo", 8, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C3_mslo", 9, 1, 0.8, 0.9, 2)
+save_window_.addexpr("somaA.C4_mslo", 10, 1, 0.8, 0.9, 2)
+}
+
+{
+save_window_ = new Graph(0)
+save_window_.size(0,19,57.1,53.8)
+scene_vector_[4] = save_window_
+{save_window_.view(0, 0.013, 500, 3.3, 567, 1270, 773.76, 345.28)}
+graphList[3].append(save_window_)
+save_window_.save_name("graphList[4].")
+
+save_window_.addexpr("AIS.cai (0.5)", 5, 1, 0.8, 0.9, 2)
+save_window_.addexpr("dendA1_0010111101.cai", 1, 1, 0.8, 0.9, 2)				//about 80 um far from soma
+save_window_.addexpr("somaA.cai", 2, 1, 0.8, 0.9, 2)
+}
+objectvar scene_vector_[1]
+{doNotify()}
