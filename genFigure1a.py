@@ -41,7 +41,7 @@ from matplotlib import pyplot
 
 # ----------------------------------------------------------------- config
 IN_TREE = "iqtree_LG+C20+F+G_20260624044521-renamed.tree"
-VALUES  = "pSvalues.txt"
+VALUES  = "pS_data.txt"
 OUT_PDF = "Figures/Figure1a.pdf"
 
 CMAP_NAME = "turbo"
@@ -332,7 +332,7 @@ def main():
         p = ln.split()
         if not p or p[0] == "Animal":
             continue
-        vals[p[0]] = float(p[1])
+        vals[p[0]] = float(p[-2])
     for t in tips:
         t.ps = vals[t.name]
 
