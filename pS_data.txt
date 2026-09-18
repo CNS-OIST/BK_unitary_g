@@ -1,0 +1,20 @@
+Animal	Scientific name	Genome used	GenBank Accession	Protein file available	pS	phylum
+Tiger_Salamander	Ambystoma tigrinum	congeneric: A. mexicanum	GCA_040938575.1	yes	150	vertebrate
+California_sea_hare	Aplysia californica	conspecific	GCA_000002075.2	yes	110.5	non
+Cow	Bos taurus	conspecific	GCA_002263795.4	yes	238	vertebrate
+C_elegans	Caenorhabditis elegans	conspecific	GCA_000002985.3	yes	51	non
+Dog	Canis lupus familiaris	conspecific	GCA_011100685.1	yes	244	vertebrate
+Garden_snail	Cornu aspersum	conspecific	GCA_964187895.1		64	non
+Longfin_Inshore_squid	Doryteuthis pealeii	conspecific	GCA_023376005.1		40	non
+Fruit_fly	Drosophila melanogaster	conspecific	GCA_000001215.4	yes	126	non
+White_Leghorn_Chicken	Gallus domesticus	conspecific	GCA_016699485.1	yes	210	vertebrate
+Cricket	Gryllus bimaculatus	conspecific	GCA_054131365.1		120	non
+Burgundy_snail	Helix pomatia	closely-related genus: Cepaea hortensis	GCA_963921405.1		50	non
+Human	Homo sapiens	conspecific	GCA_000001405.29	yes	220	vertebrate
+Rabbit	Oryctolagus cuniculus	conspecific	GCA_964237555.1	yes	209	vertebrate
+Little_Skate	Leucoraja erinacea	conspecific	GCA_028641065.1	yes	103	vertebrate
+House_mouse	Mus musculus	conspecific	GCA_000001635.9	yes	254.3	vertebrate
+American_Cockroach	Periplaneta americana	conspecific	GCA_040183065.1	yes	170	non
+Red_swamp_Crayfish	Procambarus clarkii	conspecific	GCA_040958095.1	yes	68	non
+Brown_rat	Rattus norvegicus	conspecific	GCA_036323735.1	yes	238.4	vertebrate
+Desert_Locust	Schistocerca gregaria	conspecific	GCA_023897955.2	yes	133	non
